@@ -12,6 +12,8 @@ public class CoffeeCupTest {
     @Test
     @DisplayName("Capacity")
     public void testCapacity() {
+        assertThrows(IllegalArgumentException.class, () -> new CoffeeCup(-1.0, 0.0));
+
         CoffeeCup cup = new CoffeeCup(1.0, 0.0);
 
         // Make sure constructor initializes capacity correctly
@@ -34,6 +36,8 @@ public class CoffeeCupTest {
     @Test
     @DisplayName("Volume")
     public void testVolume() {
+        assertThrows(IllegalArgumentException.class, () -> new CoffeeCup(0.0, -1.0));
+
         CoffeeCup cup = new CoffeeCup(40.0, 0.0);
 
         // Make sure constructor initializes volume correctly
