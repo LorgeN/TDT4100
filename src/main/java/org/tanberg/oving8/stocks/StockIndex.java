@@ -57,7 +57,7 @@ public class StockIndex implements Listener {
         Stock[] previous = this.stocks;
         this.stocks = new Stock[this.stocks.length - 1];
         System.arraycopy(previous, 0, this.stocks, 0, index);
-        System.arraycopy(previous, index, this.stocks, index, previous.length - index - 1);
+        System.arraycopy(previous, index, this.stocks, index, this.stocks.length - index);
 
         this.index -= stock.getPrice();
     }
