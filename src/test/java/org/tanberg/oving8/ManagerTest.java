@@ -5,6 +5,10 @@ import org.eclipse.xtext.xbase.lib.Conversions;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.tanberg.oving8.office.Clerk;
+import org.tanberg.oving8.office.Employee;
+import org.tanberg.oving8.office.Manager;
+import org.tanberg.oving8.office.Printer;
 
 import java.util.ArrayList;
 import java.util.Arrays;

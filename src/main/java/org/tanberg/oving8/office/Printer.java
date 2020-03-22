@@ -1,6 +1,5 @@
-package org.tanberg.oving8;
+package org.tanberg.oving8.office;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 

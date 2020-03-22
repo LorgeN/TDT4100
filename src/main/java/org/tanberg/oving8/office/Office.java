@@ -1,4 +1,4 @@
-package org.tanberg.oving8;
+package org.tanberg.oving8.office;
 
 import java.text.DecimalFormat;
 import java.util.List;

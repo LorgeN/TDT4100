@@ -5,6 +5,8 @@ import org.eclipse.xtext.xbase.lib.Conversions;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.tanberg.oving8.office.Clerk;
+import org.tanberg.oving8.office.Printer;
 
 import java.util.Collection;
 import java.util.function.BinaryOperator;
