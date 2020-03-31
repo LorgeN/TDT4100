@@ -2,6 +2,7 @@ package org.tanberg.oving9;
 
 import com.google.common.collect.Lists;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.*;
 import java.util.function.UnaryOperator;
 
@@ -10,6 +11,10 @@ public class ObservableList<T> implements List<T> {
     private final List<T> backingList;
     private final int sizeLimit;
     private final Collection<ListChangeListener<T>> listeners;
+
+    public ObservableList() {
+        this(-1);
+    }
 
     public ObservableList(int sizeLimit) {
         // Slight optimization; Initialize list with capacity if given maz size
@@ -20,6 +25,38 @@ public class ObservableList<T> implements List<T> {
         this.backingList = backingList;
         this.sizeLimit = sizeLimit;
         this.listeners = Lists.newArrayList();
+    }
+
+    // This is stupid
+    protected void addElement(int index, T value) {
+        this.add(index, value);
+    }
+
+    protected void addElement(T value) {
+        // Type. Parameters. Please.
+        if (!this.acceptsElement(value)) {
+            throw new IllegalArgumentException();
+        }
+
+        this.add(value);
+    }
+
+    protected void removeElement(int index) {
+        this.remove(index);
+    }
+
+    // Like honestly, type params guys dafuq
+    public boolean acceptsElement(Object object) {
+        if (object == null) {
+            return false;
+        }
+
+        Class<T> type = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        return type.isAssignableFrom(object.getClass());
+    }
+
+    public T getElement(int index) {
+        return this.get(index);
     }
 
     public int getSizeLimit() {

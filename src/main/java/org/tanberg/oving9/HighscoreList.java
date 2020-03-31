@@ -19,10 +19,6 @@ public class HighscoreList extends ObservableList<Integer> {
         super.notifyChange(val, removed);
     }
 
-    public int getElement(int index) {
-        return this.get(index);
-    }
-
     public void addObservableListListener(HighscoreChangeListener listener) {
         this.subscribe(listener);
     }
