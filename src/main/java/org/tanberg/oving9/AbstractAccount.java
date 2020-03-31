@@ -21,7 +21,7 @@ public abstract class AbstractAccount {
         this.internalWithdraw(amount);
     }
 
-    abstract void internalWithdraw(double amount);
+    abstract void internalWithdraw(double amount) throws IllegalStateException;
 
     public double getBalance() {
         return this.balance;
